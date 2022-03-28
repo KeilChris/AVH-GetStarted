@@ -4,6 +4,8 @@
 
 #include "unity.h"
 #include <stdio.h>
+#include "RTE_Components.h"             // Component selection
+#include CMSIS_device_header
 
 extern void stdio_init (void);
 
