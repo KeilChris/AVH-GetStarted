@@ -19,7 +19,8 @@ Folder or Files in the example   | Description
 `./`                             | Folder with the Basic embedded application example
 `./RTE/Device/CMSDK_CM7_DP_VHT/` | Folder with target-specific configurable files provided by software components used in the project (variant VHT_MPS2_Cortex-M7). Includes system startup files, linker scatter file, CMSIS-Driver configurations and others. See [Components in Project](https://www.keil.com/support/man/docs/uv4/uv4_ca_compinproj.htm) in µVision documentation.
 `./RTE/Device/MIMXRT1052DVL6B/` | Folder with target-specific configurable files provided by software components used in the project (variant i.MXRT1050-EVKB). Includes system startup files, linker scatter file, CMSIS-Driver configurations and others. See [Components in Project](https://www.keil.com/support/man/docs/uv4/uv4_ca_compinproj.htm) in µVision documentation.
-`./main.c`  <br /> `./basic/retarget_stdio.c`        | Application code files
+`./main.c`  <br /> `./retarget_stdio.c`        | Application code files
+`./Board/main.c/.h`  <br /> `./Board/retarget_stdio.c`        | Application code files for the i.MXRT1052 device
 `./basic.debug.uvprojx` <br /> `./basic/basic.debug.uvoptx` | Keil MDK project files (with two targets)
 `./basic.debug.cprj`             | Project file in [.cprj format](https://arm-software.github.io/CMSIS_5/Build/html/cprjFormat_pg.html)
 `./vht_config.txt`               | Configuration file for running the VHT model
