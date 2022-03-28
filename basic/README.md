@@ -1,6 +1,3 @@
-[![Virtual Hardware Target](https://raw.githubusercontent.com/ARM-software/VHT-GetStarted/badges/.github/badges/basic.yml.vht.svg)](https://github.com/ARM-software/VHT-GetStarted/actions/workflows/basic.yml)
-![Unittest Results](https://raw.githubusercontent.com/ARM-software/VHT-GetStarted/badges/.github/badges/basic.yml.unittest.svg)
-
 # Arm Virtual Hardware - Basic Example
 
 This project demonstrates how to setup a development workflow with cloud-based
@@ -8,7 +5,7 @@ Continuous Integration (CI) for testing an embedded application.
 
 The embedded program implements a set of simple unit tests for execution on
 a Arm Virtual Hardware Target (VHT). Code development and debug can be done
-locally, for example with [CMSIS-Build](https://arm-software.github.io/CMSIS_5/develop/Build/html/index.html) and [Keil MDK](https://developer.arm.com/tools-and-software/embedded/keil-mdk) tools.
+locally, for example with [CMSIS-Build](https://arm-software.github.io/CMSIS_5/develop/Build/html/index.html) and [Keil MDK](https://developer.arm.com/tools-and-software/embedded/keil-mdk) tools. For Keil MDK, there are two targets available: VHT_MPS2_Cortex-M7 using AVH, and i.MXRT1050-EVKB to run on a real development board from NXP.
 
 Automated test execution is managed with GitHub Actions and gets triggered on
 every code change in the repository. The program gets built and run on [Arm
@@ -20,9 +17,10 @@ be then observed in repository's [GitHub Actions](https://github.com/ARM-softwar
 Folder or Files in the example   | Description
 :--------------------------------|:--------------------
 `./`                             | Folder with the Basic embedded application example
-`./RTE/Device/SSE-300-MPS3/`     | Folder with target-specific configurable files provided by software components used in the project. Includes system startup files, linker scatter file, CMSIS-Driver configurations and others. See [Components in Project](https://www.keil.com/support/man/docs/uv4/uv4_ca_compinproj.htm) in µVision documentation.
+`./RTE/Device/CMSDK_CM7_DP_VHT/` | Folder with target-specific configurable files provided by software components used in the project (variant VHT_MPS2_Cortex-M7). Includes system startup files, linker scatter file, CMSIS-Driver configurations and others. See [Components in Project](https://www.keil.com/support/man/docs/uv4/uv4_ca_compinproj.htm) in µVision documentation.
+`./RTE/Device/MIMXRT1052DVL6B/` | Folder with target-specific configurable files provided by software components used in the project (variant i.MXRT1050-EVKB). Includes system startup files, linker scatter file, CMSIS-Driver configurations and others. See [Components in Project](https://www.keil.com/support/man/docs/uv4/uv4_ca_compinproj.htm) in µVision documentation.
 `./main.c`  <br /> `./basic/retarget_stdio.c`        | Application code files
-`./basic.debug.uvprojx` <br /> `./basic/basic.debug.uvoptx` | Keil MDK project files
+`./basic.debug.uvprojx` <br /> `./basic/basic.debug.uvoptx` | Keil MDK project files (with two targets)
 `./basic.debug.cprj`             | Project file in [.cprj format](https://arm-software.github.io/CMSIS_5/Build/html/cprjFormat_pg.html)
 `./vht_config.txt`               | Configuration file for running the VHT model
 `./build.py`                     | Python script for project build, execution and analysis of test results
@@ -34,7 +32,8 @@ Folder or Files in the example   | Description
 The sections below list the installation and configuration requirements for
 both supported use cases:
 
-- execute the tests manually on a local machine
+- execute the tests manually on a local machine using AVH
+- execute the tests manually on a local machine using the i.MXRT1050-EVKB development board
 - run tests automatically in the AWS cloud
 
 ### Local environment setup
